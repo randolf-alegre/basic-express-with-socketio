@@ -17,7 +17,6 @@ const getUserByUsername = async (username) => {
 };
 
 const createUser = async (args) => {
-  console.log(args);
   const { username, password, name } = args;
   try {
     return await pool.query(
@@ -25,7 +24,6 @@ const createUser = async (args) => {
       [uuidv4(), username, password, name, new Date().toISOString()]
     );
   } catch (error) {
-    console.log(error.detail);
     throw error;
   }
 };
